@@ -1,0 +1,641 @@
+*, 
+*::before,
+*::after 
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Smooth scrolling when users click internal links
+*/
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+/*==================================================================
+BASE WEBSITE STYLING
+====================================================================
+*/
+
+body { 
+    min-height: 100vh;
+
+    /*Base font family for the whole website*/
+    font-family: Arial, Helvetica, sans-serif;
+
+    /*Relative font family for the whole website*/
+    font-size: 1rem;
+
+    /*Improves redability*/
+    line-height: 1.6;
+
+    /*Main text colour*/
+    color: #24332b; 
+
+    /*Light background colour*/
+    background-color: f6f8f4; 
+} 
+/*=====================================================================
+RESPONSIVE IMAGES
+======================================================================
+/*
+Images will never become wider than their container.This helps prevents horizontal scrolling on small screens
+*/
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto; 
+}
+
+/*Make links inherit the surrounding text colour*/
+a {
+    color: inherit;
+}
+
+/*Form controls use the same font as the website*/
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/*=======================================================================
+HEADER STYLING
+=========================================================================
+*/
+
+.site-header {
+    background-color: #234b35;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+
+    /*Add a subtle shadow underneath the header*/
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+/*
+The header uses Flexbox. 
+This allows the logo and navigation to sit next to each other on larger screens
+*/
+
+.header-inner {
+    width: 92%;
+    max-width: 1200px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1.5rem;
+}
+
+/*==========================================================================
+WEBSITE LOGO STYLING
+=============================================================================
+*/
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.9rem;
+
+    text-decoration: none;
+}
+
+/*Style the organisation logo*/
+.brand img {
+    width: 72px;
+    height: 72px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid #ffffff;
+}
+
+/*Website title styling*/
+.brand h1 { 
+    font-size: clamp(1.1rem, 2vw, 1.55rem);
+    line-height: 1.2;
+}
+
+/*Website slogan styling*/
+.brand-text p {
+    font-size: 0.85rem; 
+
+    opacity: 0.9; 
+}
+
+/*=========================================================================
+MAIN NAVIGATION
+==========================================================================
+/*
+Flexbox is used to display the navigation links
+*/
+
+.main-nav {
+    display: flex; 
+
+    padding: 0.5rem 0.75rem; 
+
+    border-radius: 0.45rem; 
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    /*Creates a smooth hover transition*/
+    transition:
+         background-color 0.2s ease,
+         transform 0.2s ease;
+}
+
+/*===========================================================================
+PSEUDO-CLASS STYLING
+=============================================================================
+/*
+:hover = when mouse is over a link
+:focus = when a link is selected using the keyboard 
+:active = when a link is clicked
+*/
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav a.active {
+    background-color: #6b9b70;
+
+    outline: none;
+}
+
+/*Active/click effect*/
+
+.main-nav a:active {
+    transform: translateY(1px);
+}
+
+/*===================================================================
+MAIN CONTENT STYLING
+=====================================================================
+*/
+
+main {
+    width: 92%;
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 3rem;
+    padding-bottom: 3rem; 
+}
+
+/*=======================================================================
+HOME PAGE HERO SECTION
+=========================================================================
+/*
+CSS Grid is used to create a two-column layout for the hero section. 
+The image and text will sit next to each other on larger screens, but will stack on top of each other on smaller screens*/
+
+.hero{
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 2.5rem;
+
+    padding: 2.5rem; 
+
+    background-color: #e7efe5; 
+
+    border-radius: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+/*Main heading styling for the hero section*/
+.hero h2 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+
+    line-height: 1.1;
+
+    color: #234b35; 
+    margin-bottom: 1rem;
+}
+
+/*Hero paragraph styling*/
+.hero p {
+    font-size: 1.1rem; 
+}
+
+/*Hero image styling*/
+.hero img {
+    width: min(100%, 420px);
+  
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 1rem;
+
+    /*Box shadow to make the image stand out from the background*/
+    box-shadow: 
+        0 10px 24px rgba(35, 75, 53, 0.2);
+}
+
+/*=================================================================
+PAGE HEADINGS
+===================================================================
+*/
+
+.page-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+
+    color: #234b35; 
+
+    margin-bottom: 1.5rem;
+}
+
+/*=================================================================
+GRID LAYOUT
+===================================================================
+/*
+Two-column layout for desktop. 
+The minmax() function is used to ensure that the columns are never too small or too large. 
+The gap property adds space between the columns*/
+
+.section-grid {
+    display: grid;
+
+    grid-template-columns: 
+        repeat(2, minmax(0, 1fr));
+
+    gap: 1.5rem;
+}
+
+/*====================================================================
+CARDS
+======================================================================
+*/
+
+.card, 
+article {
+    background-color: #ffffff; 
+
+    border-radius: 0.85rem;
+
+    padding: 1.5rem;
+
+    box-shadow: 
+        0 5px 16px rgba(35, 75, 53, 0.88);
+
+}
+
+/*Card heading*/
+.card h2,
+.card h3,
+article h3 {
+    color:#234b35;
+
+    margin-bottom: 0.65rem;
+}
+
+/*Adds spacing between paragraphs*/
+.card p + p, 
+article p + p {
+    margin-top: 0.75rem;
+}
+
+/*===========================================================
+LISTS
+=============================================================
+*/
+
+.values-list,
+ul {
+    padding-left: 1.4rem;
+}
+
+/*Space between list items*/
+.values-list li + li {
+    margin-top: 0.6rem;
+}
+
+/*==============================================================
+NEWS AND EVENTS
+================================================================
+*/
+
+.events {
+    display: grid;
+
+    gap: 1rem;
+}
+
+/*Events date styling*/
+.event-date { 
+    font-weight: 700;
+
+    color: #6b6b42; 
+}
+
+/*Restrics very wide forms so they remain easy to read*/
+
+.form-card {
+    max-width: 760px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Spacing between form controls*/
+.form-group {
+    margin-bottom: 1rem;
+} 
+
+/*================================================================
+Form labels
+==================================================================
+*/
+
+label {
+    display: block;
+
+    margin-bottom: 0.35rem;
+
+    font-weight: 700;
+}
+
+/*Text fields*/
+
+input, 
+select,
+textarea {
+    width: 100%;
+
+    padding: 0.75rem 0.85;
+
+    border: 1px solid #b9c8b7;
+
+    border-radius: 0.45rem;
+
+    background-color: #ffffff;
+
+    color: #24332b; 
+}
+
+/*=============================================================
+FORM :focus pseud0-class
+==============================================================
+/*
+Show users which input they are correctly using.
+*/
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid rgba(107, 155, 112, 0.3);
+
+    outline-offset: #4f7d58;
+}
+
+/*==============================================================
+BUTTON
+================================================================
+*/
+
+.button {
+    border: 0; 
+
+    border-radius: 0.45rem;
+
+    padding: 0.75rem 1.2rem;
+
+    background-color: #234b35;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/*Button hover and focus*/
+
+.button:hover,
+.button:focus-visible {
+    background-color: #4f7d58;
+
+    outline: none;
+}
+
+/*Button active/click effect*/
+.button:active {
+    transform: translateY(1px);
+}
+
+/*==============================================================
+CONTACT PAGE GRID
+================================================================
+*/
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 1.5rem;
+}
+
+/*=====================================================================
+RESPONSIVE GOOGLE MAP
+======================================================================
+*/
+
+.map-wrapper {
+    overflow: hidden;
+
+    border-radius: 0.75rem;
+
+    border: 1px solid #dce5da; 
+}
+
+/*Map iframe*/
+.map-wrapper iframe {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 360px;
+
+    border: 0;
+}
+
+/*=============================================================
+FOOTER
+==============================================================
+*/
+
+.site-footer {
+    margin-top: 2rem;
+
+    background-color: #1b3929;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 1.5rem 1rem;
+
+   font-size: 0.9rem;
+
+}
+
+/*===============================================================
+INFORMATION NOTICE
+=================================================================
+*/
+
+.notice {
+    margin-bottom: 1rem;
+
+    padding: 0.85rem 1rem;
+
+    background-color: #fff7df;
+
+    border-left: 4px solid #b08a2e;
+}
+
+/*=================================================================
+TABLET BREAKPOINT
+===================================================================
+*/
+
+@media (max-width: 900px) {
+
+    .header-inner {
+        flex-direction: column;
+
+        align-items: stretch; 
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    .main-nav {
+        justify-content: center;
+    }
+
+    /*Change the hero from two columns to one column*/
+
+    .hero,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        text-align: center;
+    }
+}
+
+/*====================================================================
+MOBILE BREAKPOINT
+======================================================================
+/*
+At 600px or smaller the webstite is redesigned for mobile screens
+*/
+
+@media (max-width: 600px) {
+
+    html {
+        font-size: 93.75%;
+    }
+
+    main {
+        width: 94%;
+
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .header-inner {
+        width: 94%;
+    }
+
+    /*Smaller mobile logo*/
+
+    .brand img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /*Navigation changes from a horizontal Flexbox laypout to a two-column mobile grid*/
+    .main-nav {
+        display: grid;
+
+        grid-template-columns: 
+            repeat(2, minmax(0, 1fr));
+
+        width: 100%; 
+    }
+
+    /*Make mobile navigation buttons easier to tap*/
+
+    .main-nav a {
+        text-align: center;
+
+        padding: 0.65rem 0.35rem;
+    }
+
+    /*Reduce hero padding on small screens*/
+
+    .hero {
+        padding: 1.5rem; 
+
+        gap: 1.5rem;
+    }
+
+    /*Change the desktop two-column content layout into a single-column mobile layout*/
+
+    .section-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /*smaller card padding*/
+    .card,
+    article {
+        padding: 1.2rem; 
+    }
+
+    /*Smaller map on mobile*/
+
+    .map-wrapper iframe {
+        min-height: 280px;
+    }
+}
