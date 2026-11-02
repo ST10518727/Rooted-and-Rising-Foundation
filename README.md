@@ -21,6 +21,13 @@ Rooted and Rising Foundation is a non-profit organization established in 2026, w
 *Improved contact page map responsiveness.
 *Added responsive sign documentation.
 
+### Part 3 
+*Created file named script.js in JavaScript 
+*Linked script.js across all html pages. 
+*Created ENQUIRY page and also created the form. 
+*Added accordion 
+
+
 # REFERENCES
 Krug, S. (2014) Don’t Make Me Think, Revisited: A Common-Sense Approach to Web Usability. 3rd edition. Berkely: New Riders
 Nielsen, J. (2020) 10 Usability Heuristics for User Interface Design. Available at: https://www.nngroup.com/articles/ten-usability-heuristics/ (Accessed: 4 August 2026). 
