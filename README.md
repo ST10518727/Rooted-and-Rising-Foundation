@@ -26,6 +26,7 @@ Rooted and Rising Foundation is a non-profit organization established in 2026, w
 *Linked script.js across all html pages. 
 *Created ENQUIRY page and also created the form. 
 *Added accordion 
+*Added new files to my gitHub repository. 
 
 
 # REFERENCES
